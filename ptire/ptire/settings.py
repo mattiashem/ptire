@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Mattias Hemmingsson', 'mattias.hemmingsson@elino.se'),
 )
 
 MANAGERS = ADMINS
@@ -48,18 +48,18 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/opt/ptyre/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/opt/ptyre/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -81,7 +81,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '8sow&amp;jmec^==ppi^j&amp;d83a%^mggzcl3y)x26o(@4k!be$19b$t'
+SECRET_KEY = '2*1ujvo+0ckqag*s8t*!#kcs5g481w$jp884ss^3*pqiqwnw%2'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -106,6 +106,7 @@ ROOT_URLCONF = 'ptire.urls'
 WSGI_APPLICATION = 'ptire.wsgi.application'
 
 TEMPLATE_DIRS = (
+    "/opt/ptyre/static/templates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
