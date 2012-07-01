@@ -1,0 +1,217 @@
+<html>
+<head>
+	<title>{{ title }} </title>
+  <link type="text/css" href="/static/css/main.css" rel="stylesheet" />
+	
+	<link type="text/css" href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+	</head>
+	<body>
+			<script type="text/javascript" src="/static/bootstrap/js/jquery.js"></script> 
+			<script type="text/javascript" src="/static/bootstrap/js/bootstrap-tab.js"></script> 
+			
+
+    {% block menu %}
+    <div class="navbar">
+ 		<div class="navbar-inner">
+    		<div class="container">
+    		<ul class="nav">
+  				<li class="active">
+    				<a href="#">Home</a>
+  				</li>
+  				<li><a href="#">Rates & Reservations</a></li>
+  				<li><a href="#">Locations</a></li>
+  				<li><a href="#">Cars</a></li>
+  				<li><a href="#">Hot Deals</a></li>
+  				<li><a href="#">Exestings Reservations</a></li>
+  				<li><form class="navbar-form pull-left form-search">
+					  <input type="text" class="input-large search-query" value="search">
+					</form>
+				</li>
+			</ul>
+			</div>
+  		</div>
+	</div>
+
+    {% endblock %}
+
+
+
+	{% block content %}
+	
+	<div id="logo"></div>
+	<div class="span10">	
+
+        <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#home">Start</a></li>
+    <li><a href="#cars">Choose Car</a></li>
+    <li><a href="#payment">Payment</a></li>
+    <li><a href="#done">Care Hired</a></li>
+    </ul>
+     
+    <div id="myTabContent" class="tab-content">
+    <div class="tab-pane active" id="home">
+    	
+    	<div class="span4">
+<form class="well" name="start">
+    		<label></label>
+    		<input type="text" name="dest" value="Search" class="input-large search-search">
+    		<label>Pickup</label>	
+    		<input type="text" name="start" value="20121212"/>
+    		<label>Drop off	</label>
+    		<input type="text" name="stop" value="20121212"/>
+    		<label></label>
+    		<input type="button" class="btn btn-success" name="search" value="Next" onclick="javascript:toCars();"/>
+    	</form>
+    </div>
+    </div>
+    <div class="tab-pane" id="cars">
+      <form name="cars" class="well">
+        <table class="table table-striped">
+          <cars>
+
+            
+
+          
+
+          </cars>
+        </table>
+      </form>
+
+
+    </div>
+    <div class="tab-pane" id="payment">
+
+ <form class="well" name="payment_form">
+          <label>Drivers Name</label>
+          <input type="text" name="name" id='name' value="Name"/>
+          <label>Name on card</label>
+          <input type="text" name="cardname" value="Name"/>
+          <label>Cardnumber</label>
+          <input type="text" name="cardnumber" value="cardnumber"/>
+          <label></label>
+          <input type="button" value="Next" class="btn btn-success" onclick="javascript:toSummit();">
+
+
+    </form>
+  </div>
+       
+
+
+
+
+    <div class="tab-pane" id="done">
+      <form class="well">
+        <h2>You Car</h2>
+    <done_car>
+
+
+    </done_car>
+    <h2>Your details</h2>
+    <h3>Private Info</h3>
+    <done_dit>
+    <b>You Name: </b><strong>
+    <input type="hidden" id="form_drivername" name="form_drivername" value="Mattias Hemmingsson"/><drivername></drivername></strong>
+    <address>
+    <b>Address: </b>Reavägen 2<br>
+    <b>Postaddress: </b>174 45 Järfälla<br>
+    <b>Town: </b>Stockholm<br>
+  </address>
+    <h3>Contact Info</h3>
+    <address>
+    <b>Email: </b>matte@elino.se<br>
+    <b>Cellphone: </b>070882882828
+  </address>
+    <h3>Payment Info</h3>
+    <address>
+    <b>Card: </b>411111*******<br>
+    <b>Expire: </b>201203003<br>
+  </address>
+    </done_dit>
+    <input type="submit" class="btn btn-success" value="Book Car"/>
+</form>
+
+  </div>
+    
+
+    </div>
+     
+    <script>
+  $(function () {
+    $('#myTab a').click(function (e) {
+  		e.preventDefault();
+  		$(this).tab('show');
+})
+  })
+
+function toCars(){
+// Getting input from form
+destination = start.dest.value;
+
+
+var dataString = 'location='+ destination;  
+//alert (dataString);return false;  
+$.ajax({  
+  type: "GET",  
+  url: "/system/carstatus",  
+  data: dataString,  
+  success: function(response) {  
+    // Adding content to div
+    $("cars").append(response);
+
+
+    //Changing tab to cars
+    $('#myTab a[href="#cars"]').tab('show');
+
+  }  
+});  
+return false;
+
+
+
+
+
+
+}
+function chooseCar(div){
+
+  // Append choosen car to done page and mark it
+$('car1').css("background-color","red");
+$('#myTab a[href="#payment"]').tab('show');
+$('car1').clone().appendTo('done_car')
+
+}
+
+
+
+function toSummit(){
+
+// Getting drivers name and setting to and tab
+var name = $('#name').val();
+$('#form_drivername').val(name);
+$('drivername').append(name);
+
+//Changing tab
+$('#myTab a[href="#done"]').tab('show');
+
+
+}
+
+
+</script>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{%block fotter%}
+<div id="footer">
+
+</div>
+
+{%endblock%}
+</body>
+</html>
