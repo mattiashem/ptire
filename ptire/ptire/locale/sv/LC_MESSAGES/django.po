@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-02 21:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ptire/settings.py:40
+msgid "Germany"
+msgstr "Tyska"
+
+#: ptire/settings.py:41
+msgid "English"
+msgstr "Engelska"
+
+#: ptire/settings.py:42
+msgid "Swedish"
+msgstr "Svenska"
+
+#: static/templates/base.html:23
+msgid "Rates and Reservations"
+msgstr "Avgifter och Reservationer"
+
+#: static/templates/base.html:24
+msgid "Locations"
+msgstr "Platser"
+
+#: static/templates/base.html:25
+msgid "Cars"
+msgstr "Bilar"
+
+#: static/templates/base.html:26
+msgid "Hot Deals"
+msgstr "Erbjudande"
+
+#: static/templates/base.html:27
+msgid "Exestings Reservations"
+msgstr "Gjorda Bokningar"
+
+#: static/templates/base.html:54
+msgid "Start"
+msgstr "Start"
+
+#: static/templates/base.html:55
+msgid "Choose Car"
+msgstr "Välj Bil"
+
+#: static/templates/base.html:56
+msgid "Payment"
+msgstr "Betalning"
+
+#: static/templates/base.html:57
+msgid "Care Hired"
+msgstr "Bil Bokning"
+
+#: static/templates/base.html:67
+msgid "Pickup"
+msgstr "Avhämtning"
+
+#: static/templates/base.html:69
+msgid "Drop off"
+msgstr "Avläming"
+
+#: static/templates/base.html:94
+msgid "Drivers Name"
+msgstr "Förarens Namn"
+
+#: static/templates/base.html:96
+msgid "Name on card"
+msgstr "Namn på Kortet"
+
+#: static/templates/base.html:98
+msgid "Cardnumber"
+msgstr "Kortnummer"
+
+#: static/templates/base.html:118
+msgid "Your details"
+msgstr "Dina Uppggifter"
+
+#: static/templates/base.html:119
+msgid "Private Info"
+msgstr "Private Info"
+
+#: static/templates/base.html:121
+msgid "You Name: "
+msgstr "Ditt Namn:"
+
+#: static/templates/base.html:124
+msgid "Address: "
+msgstr "Address:"
+
+#: static/templates/base.html:125
+msgid "Postaddress: "
+msgstr "Postaddress:"
+
+#: static/templates/base.html:126
+msgid "Town: "
+msgstr "Stad:"
+
+#: static/templates/base.html:128
+msgid "Contact Info"
+msgstr "Kontakt Info"
+
+#: static/templates/base.html:130
+msgid "Email: "
+msgstr "Email:"
+
+#: static/templates/base.html:131
+msgid "Cellphone: "
+msgstr "Mobiltelefon:"
+
+#: static/templates/base.html:133
+msgid "Payment Info"
+msgstr "Betalinfo:"
+
+#: static/templates/base.html:135
+msgid "Card: "
+msgstr "Kort:"
+
+#: static/templates/base.html:136
+msgid "Expire: "
+msgstr "Utgår:"

@@ -1,3 +1,5 @@
+{% load i18n %}
+{% get_available_languages as LANGUAGES %}
 <html>
 <head>
 	<title>{{ title }} </title>
@@ -18,14 +20,20 @@
   				<li class="active">
     				<a href="#">Home</a>
   				</li>
-  				<li><a href="#">Rates & Reservations</a></li>
-  				<li><a href="#">Locations</a></li>
-  				<li><a href="#">Cars</a></li>
-  				<li><a href="#">Hot Deals</a></li>
-  				<li><a href="#">Exestings Reservations</a></li>
-  				<li><form class="navbar-form pull-left form-search">
-					  <input type="text" class="input-large search-query" value="search">
-					</form>
+  				<li><a href="#">{% trans "Rates and Reservations" %}</a></li>
+  				<li><a href="#">{% trans "Locations" %}</a></li>
+  				<li><a href="#">{% trans "Cars" %}</a></li>
+  				<li><a href="#">{% trans "Hot Deals" %}</a></li>
+  				<li><a href="#">{% trans "Exestings Reservations" %}</a></li>
+  				<li>    <form action="/i18n/setlang/" method="post">
+      <input name="next" type="hidden" value="/" />
+      <select name="language">
+        {% for lang in LANGUAGES %}
+          <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Go" />
+    </form>
 				</li>
 			</ul>
 			</div>
@@ -37,15 +45,16 @@
 
 
 	{% block content %}
+  
 	
 	<div id="logo"></div>
 	<div class="span10">	
 
         <ul class="nav nav-tabs" id="myTab">
-    <li class="active"><a href="#home">Start</a></li>
-    <li><a href="#cars">Choose Car</a></li>
-    <li><a href="#payment">Payment</a></li>
-    <li><a href="#done">Care Hired</a></li>
+    <li class="active"><a href="#home">{% trans "Start" %}</a></li>
+    <li><a href="#cars">{% trans "Choose Car" %}</a></li>
+    <li><a href="#payment">{% trans "Payment" %}</a></li>
+    <li><a href="#done">{% trans "Care Hired" %}</a></li>
     </ul>
      
     <div id="myTabContent" class="tab-content">
@@ -55,9 +64,9 @@
 <form class="well" name="start">
     		<label></label>
     		<input type="text" name="dest" value="Search" class="input-large search-search">
-    		<label>Pickup</label>	
+    		<label>{% trans "Pickup" %}</label>	
     		<input type="text" name="start" value="20121212"/>
-    		<label>Drop off	</label>
+    		<label>{% trans "Drop off" %}</label>
     		<input type="text" name="stop" value="20121212"/>
     		<label></label>
     		<input type="button" class="btn btn-success" name="search" value="Next" onclick="javascript:toCars();"/>
@@ -82,11 +91,11 @@
     <div class="tab-pane" id="payment">
 
  <form class="well" name="payment_form">
-          <label>Drivers Name</label>
+          <label>{% trans "Drivers Name"%}</label>
           <input type="text" name="name" id='name' value="Name"/>
-          <label>Name on card</label>
+          <label>{% trans "Name on card"%}</label>
           <input type="text" name="cardname" value="Name"/>
-          <label>Cardnumber</label>
+          <label>{% trans "Cardnumber"%}</label>
           <input type="text" name="cardnumber" value="cardnumber"/>
           <label></label>
           <input type="button" value="Next" class="btn btn-success" onclick="javascript:toSummit();">
@@ -101,30 +110,30 @@
 
     <div class="tab-pane" id="done">
       <form class="well">
-        <h2>You Car</h2>
+        <h2>{% trans "You Car</h2>
     <done_car>
 
 
     </done_car>
-    <h2>Your details</h2>
-    <h3>Private Info</h3>
+    <h2>{% trans "Your details"%}</h2>
+    <h3>{% trans "Private Info"%}</h3>
     <done_dit>
-    <b>You Name: </b><strong>
+    <b>{% trans "You Name: "%}</b><strong>
     <input type="hidden" id="form_drivername" name="form_drivername" value="Mattias Hemmingsson"/><drivername></drivername></strong>
     <address>
-    <b>Address: </b>Reavägen 2<br>
-    <b>Postaddress: </b>174 45 Järfälla<br>
-    <b>Town: </b>Stockholm<br>
+    <b>{% trans "Address: "%}</b>Reavägen 2<br>
+    <b>{% trans "Postaddress: "%}</b>174 45 Järfälla<br>
+    <b>{% trans "Town: "%}</b>Stockholm<br>
   </address>
-    <h3>Contact Info</h3>
+    <h3>{% trans "Contact Info"%}</h3>
     <address>
-    <b>Email: </b>matte@elino.se<br>
-    <b>Cellphone: </b>070882882828
+    <b>{% trans "Email: "%}</b>matte@elino.se<br>
+    <b>{% trans "Cellphone: "%}</b>070882882828
   </address>
-    <h3>Payment Info</h3>
+    <h3>{% trans "Payment Info"%}</h3>
     <address>
-    <b>Card: </b>411111*******<br>
-    <b>Expire: </b>201203003<br>
+    <b>{% trans "Card: "%}</b>411111*******<br>
+    <b>{% trans "Expire: "%}</b>201203003<br>
   </address>
     </done_dit>
     <input type="submit" class="btn btn-success" value="Book Car"/>
