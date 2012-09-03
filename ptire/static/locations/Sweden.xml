@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <locations>
+  <Pickup>
+     <Name>Stockholm</Name>
+  </Pickup>
+  <Pickup>
+     <Name>Göteborg</Name>
+  </Pickup>
+  <Pickup>
+     <Name>Mamlö</Name>
+  </Pickup>
+</locations>

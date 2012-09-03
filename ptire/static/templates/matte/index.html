@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>"Content for Matte page"</h2>
+
+<select id='A' name='A'>
+    
+</select>
+<select id='B' name='B'>
+</select>
+
+<script>
+
+
+function loadLocationsA(){
+
+
+		var aLocation = {
+	    ValueA : 'Sweden',
+	    ValueB : 'Norway',
+	    ValueC : 'Germany'
+	};
+	 
+	var select = document.getElementById("A");
+	for(index in aLocation) {
+	    select.options[select.options.length] = new Option(aLocation[index], aLocation[index]);
+	}
+
+
+}
+
+
+
+function getLocations(val){
+	// Function to load bLocation drop down
+	// Get locations and loads if with the right content
+	var loca_array= new Array()
+
+    $.ajax({
+    type: "GET",
+     async: false,
+    url: "/static/locations/"+val+".xml",
+    dataType: "xml",
+    success: function(xml){
+    	$(xml).find("Pickup").each(function(){
+      		        var name = $(this).find('Name').text();
+      		        loca_array.push(name)
+    		        });
+    	},
+
+    });
+    return loca_array;
+}
+
+
+
+(function(){
+
+		// Loads locations to A dropdown
+		loadLocationsA()
+        
+        
+
+        var A = document.getElementById('A');
+        var B = document.getElementById('B');
+
+        //on change is a good event for this because you are guarenteed the value is different
+        A.onchange = function(){
+            //clear out B
+            B.length = 0;
+            //get the selected value from A
+            var _val = this.options[this.selectedIndex].value;
+            Locations = getLocations(_val)
+            //loop through bOption at the selected value
+            for ( var i in Locations){
+                //create option tag
+
+                var op = document.createElement('option');
+                //set its value
+                op.value = Locations[i];
+                //set the display label
+                op.text = Locations[i];
+                //append it to B
+                B.appendChild(op);
+            }
+        };
+        //fire this to update B on load
+        A.onchange();
+
+    })();
+
+
+</script>
+{% endblock %}

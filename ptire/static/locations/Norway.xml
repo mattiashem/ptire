@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <locations>
+  <Pickup>
+     <Name>Oslo</Name>
+  </Pickup>
+  <Pickup>
+     <Name>Tronind</Name>
+  </Pickup>
+  <Pickup>
+     <Name>annat</Name>
+  </Pickup>
+</locations>

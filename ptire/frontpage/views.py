@@ -41,6 +41,7 @@ def pro(request,pro):
 		'''
 		template is located and printed to user
 		'''
+		return render_to_response(pro+'/index.html',{'title':pro})
 		
 	
 	except:
@@ -50,6 +51,6 @@ def pro(request,pro):
 		raise Http404()
 
 
-	render_to_response(pro+'/index.html',{'title':pro})		
+			
 
 	
